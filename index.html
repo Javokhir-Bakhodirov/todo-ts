@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style type="text/tailwindcss">
+            @layer utilities {
+                .content-auto {
+                    content-visibility: auto;
+                }
+            }
+        </style>
+
+        <title>ToDo List</title>
+    </head>
+    <body class="min-w-screen bg-gray-500 flex">
+        <div
+            class="flex flex-col gap-5 mx-auto mt-[200px] bg-white p-5 rounded-lg shadow-lg max-w-lg w-full">
+            <!-- Form Section -->
+            <form autocomplete="off" class="flex elForm">
+                <input
+                    type="text"
+                    required
+                    placeholder="Enter your ToDo"
+                    class="elInput p-2 border-2 rounded-l-lg flex-grow outline-none focus:border-blue-500" />
+                <button
+                    type="submit"
+                    class="elBtn rounded-r-lg bg-green-600 text-center p-2 px-5 font-bold text-white hover:bg-green-700 transition-all">
+                    Add
+                </button>
+            </form>
+            <!-- List Section -->
+            <ul class="elList max-h-[450px] overflow-auto space-y-3"></ul>
+        </div>
+
+        <!-- Edit Modal Section -->
+        <div
+            id="editModal"
+            class="hidden fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center">
+            <div class="bg-white p-5 rounded-lg w-96">
+                <h2 class="text-xl font-bold mb-4">Edit To-Do</h2>
+                <input
+                    type="text"
+                    id="editInput"
+                    class="border p-2 w-full rounded" />
+                <div class="flex justify-end mt-4 space-x-3">
+                    <button
+                        id="saveBtn"
+                        class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                        Save
+                    </button>
+                    <button
+                        id="cancelBtn"
+                        class="bg-gray-300 text-black p-2 rounded hover:bg-gray-400">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="./main.js"></script>
+</html>
